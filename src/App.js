@@ -4,6 +4,7 @@ import HeaderC from "./components/header/HeaderC";
 import Section from "./components/layout/Section";
 import FooterC from "./components/footer/FooterC";
 import Cart from "./components/cart/Cart";
+import CartProvider from "./store/CartProvider";
 
 function App() {
   const [showCart, setShowCart] = useState(false);
@@ -16,12 +17,12 @@ function App() {
     setShowCart(false);
   };
   return (
-    <React.Fragment>
+    <CartProvider>
       {showCart && <Cart onClose={hideCartHandler} />}
       <HeaderC onShowCart={showCartHandler} />
-      <Section />
+      <Section onShowCart={showCartHandler}/>
       <FooterC />
-    </React.Fragment>
+    </CartProvider>
   );
 }
 

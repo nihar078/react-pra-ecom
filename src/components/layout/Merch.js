@@ -1,21 +1,32 @@
+import { useContext } from "react";
+
 import { Row, Col, Card, Button } from "react-bootstrap";
 import "./MusicAlbums.css";
+import CartContext from "../../store/CartContext";
 
 const Merch = () => {
+  const cartCtx = useContext(CartContext);
   const productsArr = [
     {
-      id: "t-shirt",
+      id: "5",
       title: "T-Shirt",
       price: 19.99,
+      quantity: 1,
       imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Shirt.png",
     },
     {
-      id: "coffee-cup",
+      id: "6",
       title: "Coffee Cup",
       price: 6.99,
+      quantity: 1,
       imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Cofee.png",
     },
   ];
+
+  const addToCartHandler = (item) => {
+    cartCtx.addItem(item);
+  }
+  
   return (
     <section>
       <h1>Merch</h1>
@@ -31,7 +42,11 @@ const Merch = () => {
                   </div>
                   <Card.Text className="mt-3">
                     {`$${product.price}`}{" "}
-                    <Button className="button-wrap" variant="info">
+                    <Button
+                      className="button-wrap"
+                      variant="info"
+                      onClick={() => addToCartHandler(product)}
+                    >
                       ADD TO CART
                     </Button>
                   </Card.Text>
