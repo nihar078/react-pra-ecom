@@ -5,8 +5,7 @@ import { useRef, useState } from "react";
 const Contact = () => {
   const [saveUser, setSaveUser] = useState(false);
   const emailRef = useRef("");
-  const passwordRef = useRef("");
-  const phoneNoRef = useRef();
+  const nameRef = useRef("");
 
   const addUserHandler = async (user) => {
     const response = await fetch(
@@ -30,9 +29,8 @@ const Contact = () => {
   const saveUserDetailsHandler = (e) => {
     e.preventDefault();
     const user = {
+        name: nameRef.current.value,
       email: emailRef.current.value,
-      password: passwordRef.current.value,
-      phoneNo: phoneNoRef.current.value,
     };
     addUserHandler(user);
   };
@@ -42,26 +40,14 @@ const Contact = () => {
       <Container>
         <h1>Contact US</h1>
         {saveUser && <div className="saveUser-wrap"><h5>ThankYou for Contacting Us!!!</h5><p>We Saved your Contact...</p></div>}
-        {!saveUser && <Form className="form-wrap" onSubmit={saveUserDetailsHandler}>        
+        {!saveUser && <Form className="form-wrap" onSubmit={saveUserDetailsHandler}> 
+        <Form.Group className="mb-3" controlId="formGroupname">
+            <Form.Label>Enter Name</Form.Label>
+            <Form.Control type="text" placeholder="Enter name" ref={nameRef} />
+          </Form.Group>       
           <Form.Group className="mb-3" controlId="formGroupEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control type="email" placeholder="Enter email" ref={emailRef} />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formGroupPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Password"
-              ref={passwordRef}
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formGroupPhoneNo">
-            <Form.Label>Phone No</Form.Label>
-            <Form.Control
-              type="number"
-              placeholder="Enter phoneNo"
-              ref={phoneNoRef}
-            />
           </Form.Group>
           <Button variant="primary" type="submit">
             SUBMIT

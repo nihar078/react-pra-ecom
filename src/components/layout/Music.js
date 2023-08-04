@@ -12,6 +12,7 @@ const Music = (props) => {
       price: 12.99,
       quantity: 1,
       alt: "Colors",
+      review: 4 ,
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
     },
@@ -21,6 +22,7 @@ const Music = (props) => {
       price: 14.99,
       alt: "Black and white Colors",
       quantity: 1,
+      review: 4.5 ,
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
     },
@@ -29,6 +31,7 @@ const Music = (props) => {
       title: "Album 3",
       price: 9.99,
       quantity: 1,
+      review: 5 ,
       alt: "Yellow and Black Colors",
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
@@ -38,6 +41,7 @@ const Music = (props) => {
       title: "Album 4",
       price: 19.99,
       quantity: 1,
+      review: 3.5 ,
       alt: "Blue Color",
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
