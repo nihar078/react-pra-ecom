@@ -1,5 +1,5 @@
 import { Container, Row } from "react-bootstrap";
-import "./Music.css";
+// import "./Music.css";
 import MusicAlbums from "./MusicAlbums";
 import Merch from "./Merch";
 import Section2CartButton from "./SectionCartButton";
